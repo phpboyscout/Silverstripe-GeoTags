@@ -1,0 +1,12 @@
+---
+Name: geotags
+After:
+  - 'framework/*'
+  - 'cms/*'
+---
+SiteConfig:
+  extensions:
+    - GeoTagsExtension
+SiteTree:
+  extensions:
+    - GeoTagsControllerExtension

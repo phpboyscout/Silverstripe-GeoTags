@@ -1,0 +1,26 @@
+{
+	"name": "zucchi/geotags",
+	"description": "Module to add GeoTag fields to site (or Page) and inject the into the SiteTree->MetaTags function via an Extension",
+	"type": "silverstripe-module",
+    "keywords" : ["silverstripe", "geolocation", "geotag", "meta"],
+    "license" : "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Matt Cockayne",
+            "email": "matt@zucchi.co.uk",
+            "homepage": "http://zucchi.co.uk",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "dev@zucchi.co.uk",
+        "issues": "https://github.com/zucchi/Silverstripe-GeoTags/issues",
+        "wiki": "https://github.com/zucchi/Silverstripe-GeoTags/wiki",
+        "source": "https://github.com/zucchi/Silverstripe-GeoTags"
+    },
+    "target-dir" : "geotags",
+	"require": {
+		"silverstripe/fremework": ">=3.*",
+        "silverstripe/cms": ">=3.*"
+	}
+}
