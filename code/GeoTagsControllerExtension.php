@@ -2,7 +2,7 @@
 
 class GeoTagsControllerExtension extends DataExtension {
 
-    public function MetaTags($tags)
+    public function MetaTags(&$tags)
     {
         $page = $this->getOwner();
         if ($page->has_extension('GeoTagsExtension')) {
