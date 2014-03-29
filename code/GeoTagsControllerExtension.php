@@ -5,29 +5,34 @@ class GeoTagsControllerExtension extends DataExtension {
     public function MetaTags(&$tags)
     {
         $page = $this->getOwner();
-        if ($page->has_extension('GeoTagsExtension')) {
-            if (strlen($page->GeoRegion)) {
-                $tags .= '<meta name="geo.region" content="' . $page->GeoRegion . '" />';
-            }
-            if (strlen($page->GeoPlacename)) {
-                $tags .= '<meta name="geo.placename" content="' . $page->GeoPlacename . '" />';
-            }
-            if (strlen($page->Latitude) && strlen($page->Longitude)) {
-                $tags .= '<meta name="geo.position" content="' . $page->Latitude . ';' . $page->Longitude . '" />';
-                $tags .= '<meta name="ICBM" content="' . $page->Latitude . ', ' . $page->Longitude . '" />';
-            }
-        } else if (SiteConfig::has_extension('GeoTagsExtension')) {
+        $config = SiteConfig::current_site_config();
 
-            $page = DataObject::get_one('SiteConfig');
-            if (strlen($page->GeoRegion)) {
-                $tags .= '<meta name="geo.region" content="' . $page->GeoRegion . '" />';
+        if ($page->has_extension('GeoTagsExtension')) {
+            $data = $page;
+        } else if ($config->has_extension('GeoTagsExtension')) {
+            $data = $config;
+        }
+
+        if ($data) {
+            $region = '';
+            if (strlen($data->GeoCountry)) {
+                $region = $data->GeoCountry;
+                if (strlen($data->GeoRegion)) {
+                    $region .= '-' . $data->GeoRegion;
+                }
             }
-            if (strlen($page->GeoPlacename)) {
-                $tags .= '<meta name="geo.placename" content="' . $page->GeoPlacename . '" />';
+
+            if ($region) {
+                $tags .= '<meta name="geo.region" content="' . $region . '" />';
             }
-            if (strlen($page->Latitude) && strlen($page->Longitude)) {
-                $tags .= '<meta name="geo.position" content="' . $page->Latitude . ';' . $page->Longitude . '" />';
-                $tags .= '<meta name="ICBM" content="' . $page->Latitude . ', ' . $page->Longitude . '" />';
+
+            if (strlen($data->GeoPlacename)) {
+                $tags .= '<meta name="geo.placename" content="' . $data->GeoPlacename . '" />';
+            }
+
+            if (strlen($data->Latitude) && strlen($data->Longitude)) {
+                $tags .= '<meta name="geo.position" content="' . $data->Latitude . ';' . $data->Longitude . '" />';
+                $tags .= '<meta name="ICBM" content="' . $data->Latitude . ', ' . $data->Longitude . '" />';
             }
         }
 

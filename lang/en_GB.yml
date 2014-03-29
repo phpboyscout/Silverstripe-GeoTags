@@ -1,0 +1,15 @@
+en_GB:
+  GeoTags:
+    GEOCOUNTRY: 'Country'
+    GEOCOUNTRY_HELP: 'The Country of origin'
+    GEOREGION: 'Region'
+    GEOREGION_HELP: 'The Region in the Country of origin. Must use appropriate iso3166 region code'
+    GEOPLACENAME: 'Placename'
+    GEOPLACENAME_HELP: 'The Placename tag is provided primarily for resource recognition; it is anticipated that this field be harvested by automated agents and presented to the user in search engine results in a similar manner to the description META tag. This field is free-text, and typically would be used for city, county and state names. It could, however, be used for resource discovery'
+    GEOLONGITUDE: 'Longitude'
+    GEOLONGITUDE_HELP: 'The Longitude for the location'
+    GEOLATITUDE: 'Latitude'
+    GEOLATITUDE_HELP: 'The Latitude for the location'
+
+
+
