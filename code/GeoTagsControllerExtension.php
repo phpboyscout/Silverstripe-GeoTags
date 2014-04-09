@@ -7,7 +7,12 @@ class GeoTagsControllerExtension extends DataExtension {
         $page = $this->getOwner();
         $config = SiteConfig::current_site_config();
 
-        if ($page->has_extension('GeoTagsExtension')) {
+        while ($page && !$page->has_extension('GeoTagsExtension')) {
+            $parent = $page->ParentID;
+            $page = SiteTree::get_by_id('SiteTree', $parent);
+        }
+
+        if ($page) {
             $data = $page;
         } else if ($config->has_extension('GeoTagsExtension')) {
             $data = $config;
