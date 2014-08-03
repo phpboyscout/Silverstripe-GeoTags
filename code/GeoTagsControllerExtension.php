@@ -35,9 +35,9 @@ class GeoTagsControllerExtension extends DataExtension {
                 $tags .= '<meta name="geo.placename" content="' . $data->GeoPlacename . '" />';
             }
 
-            if (strlen($data->Latitude) && strlen($data->Longitude)) {
-                $tags .= '<meta name="geo.position" content="' . $data->Latitude . ';' . $data->Longitude . '" />';
-                $tags .= '<meta name="ICBM" content="' . $data->Latitude . ', ' . $data->Longitude . '" />';
+            if (strlen($data->GeoLatitude) && strlen($data->GeoLongitude)) {
+                $tags .= '<meta name="geo.position" content="' . $data->GeoLatitude . ';' . $data->GeoLongitude . '" />';
+                $tags .= '<meta name="ICBM" content="' . $data->GeoLatitude . ', ' . $data->GeoLongitude . '" />';
             }
         }
 
