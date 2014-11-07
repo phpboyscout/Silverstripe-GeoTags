@@ -10,6 +10,8 @@ class GeoTagsControllerExtension extends DataExtension {
         while ($page && !$page->has_extension('GeoTagsExtension')) {
             if ($parent = $page->ParentID) {
                 $page = SiteTree::get_by_id('SiteTree', $parent);
+            } else {
+                $page = false;
             }
         }
 
