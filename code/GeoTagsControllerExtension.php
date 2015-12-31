@@ -1,6 +1,7 @@
 <?php
 
-class GeoTagsControllerExtension extends DataExtension {
+class GeoTagsControllerExtension extends DataExtension
+{
 
     public function MetaTags(&$tags)
     {
@@ -17,7 +18,7 @@ class GeoTagsControllerExtension extends DataExtension {
 
         if ($page) {
             $data = $page;
-        } else if ($config->has_extension('GeoTagsExtension')) {
+        } elseif ($config->has_extension('GeoTagsExtension')) {
             $data = $config;
         }
 
@@ -46,6 +47,4 @@ class GeoTagsControllerExtension extends DataExtension {
 
         return $tags;
     }
-
-
 }

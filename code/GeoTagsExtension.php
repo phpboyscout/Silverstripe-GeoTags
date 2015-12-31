@@ -1,6 +1,7 @@
 <?php
 
-class GeoTagsExtension extends DataExtension {
+class GeoTagsExtension extends DataExtension
+{
 
     private static $db = array(
         'GeoCountry' => 'varchar(30)',
@@ -10,8 +11,8 @@ class GeoTagsExtension extends DataExtension {
         'GeoLatitude' => 'varchar(30)',
     );
 
-    public function updateCMSFields(FieldList $fields) {
-
+    public function updateCMSFields(FieldList $fields)
+    {
         $geoCountry = new CountryDropdownField('GeoCountry', _t('GeoTags.GEOCOUNTRY', 'Country'));
         $geoCountry->setRightTitle(_t(
             'GeoTags.GEOCOUNTY_HELP',
@@ -42,7 +43,7 @@ class GeoTagsExtension extends DataExtension {
             'The Latitude for the location'
         ))->addExtraClass('help');
 
-        $fields->addFieldsToTab( 'Root.GeoTags',array(
+        $fields->addFieldsToTab('Root.GeoTags', array(
             $geoCountry,
             $geoRegion,
             $geoPlacename,
